@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navya Kapoor — Digital Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --white: #fafaf8;
+    --yellow: #FFE135;
+    --coral: #FF6B4A;
+    --mint: #00C9A7;
+    --lavender: #C8B8FF;
+    --blue: #3B82F6;
+    --pink: #FF85C2;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+  
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink); display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2.5rem; height: 60px;
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--yellow); letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--yellow); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh; background: var(--ink);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 5rem 2.5rem 4rem; gap: 4rem; position: relative; overflow: hidden;
+  }
+  .hero-blob {
+    position: absolute; border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  .blob1 { width: 400px; height: 400px; background: var(--coral); opacity: 0.12; top: -100px; right: -100px; }
+  .blob2 { width: 300px; height: 300px; background: var(--mint); opacity: 0.1; bottom: -50px; left: 200px; animation-delay: -3s; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+  
+  .hero-left { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px; padding: 6px 16px; font-size: 12px; color: var(--mint);
+    font-weight: 500; letter-spacing: 0.05em; margin-bottom: 1.5rem;
+  }
+  .hero-tag span { width: 6px; height: 6px; background: var(--mint); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  
+  .hero-name {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 1.05;
+    color: var(--white); letter-spacing: -2px; margin-bottom: 0.5rem;
+  }
+  .hero-name .accent { color: var(--yellow); }
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.5);
+    font-weight: 300; margin-bottom: 1.5rem; letter-spacing: 0.01em;
+  }
+  .hero-value {
+    font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7;
+    max-width: 460px; margin-bottom: 2.5rem;
+    border-left: 3px solid var(--yellow); padding-left: 1rem;
+  }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--yellow); color: var(--ink); padding: 12px 24px;
+    border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 700;
+    font-family: 'Syne', sans-serif; letter-spacing: 0.02em; transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: #f5d800; }
+  .btn-outline {
+    background: transparent; color: var(--white); padding: 12px 24px;
+    border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; cursor: pointer;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+  
+  .hero-right { position: relative; z-index: 2; }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .stat-card {
+    border-radius: 16px; padding: 1.5rem 1.25rem;
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-4px); }
+  .stat-card.yellow { background: var(--yellow); }
+  .stat-card.coral { background: var(--coral); }
+  .stat-card.mint { background: var(--mint); }
+  .stat-card.lavender { background: var(--lavender); }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 500; color: rgba(0,0,0,0.55); }
+
+  /* SECTION BASE */
+  section { padding: 5rem 2.5rem; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--coral); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-heading {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -1.5px; color: var(--ink);
+    line-height: 1.1; margin-bottom: 1rem;
+  }
+  .section-sub { font-size: 16px; color: #666; max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; }
+  .about-visual {
+    background: var(--ink); border-radius: 24px; padding: 2.5rem;
+    position: relative; overflow: hidden; min-height: 400px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .about-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--yellow); display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .about-visual-bg {
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px; background: var(--coral); opacity: 0.2; border-radius: 50%;
+  }
+  .about-quote { font-size: 20px; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--white); line-height: 1.4; position: relative; z-index: 2; }
+  .about-quote .highlight-text { color: var(--yellow); }
+  .about-content { }
+  .about-para { font-size: 15px; color: #444; line-height: 1.8; margin-bottom: 1rem; }
+  .about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+  .chip {
+    padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 500;
+    border: 1.5px solid; letter-spacing: 0.02em;
+  }
+  .chip-yellow { border-color: var(--yellow); color: #8a7200; background: #fffbe0; }
+  .chip-coral { border-color: var(--coral); color: #c13d21; background: #fff0ec; }
+  .chip-mint { border-color: var(--mint); color: #007a66; background: #e0fdf7; }
+  .chip-blue { border-color: var(--blue); color: #1d4ed8; background: #eff6ff; }
+
+  /* SKILLS */
+  #skills { background: var(--ink); }
+  #skills .section-heading { color: var(--white); }
+  #skills .section-label { color: var(--mint); }
+  #skills .section-sub { color: rgba(255,255,255,0.5); }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .skill-category {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .skill-cat-title {
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
+    margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .skill-cat-title.t-yellow { color: var(--yellow); }
+  .skill-cat-title.t-coral { color: var(--coral); }
+  .skill-cat-title.t-mint { color: var(--mint); }
+  .skill-cat-title.t-lavender { color: var(--lavender); }
+  .skill-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .skill-name { font-size: 13px; color: rgba(255,255,255,0.8); }
+  .skill-bar { width: 60px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 99px; overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 99px; }
+
+  /* PROJECTS */
+  #projects { background: var(--white); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .project-card {
+    border-radius: 20px; overflow: hidden; cursor: pointer;
+    border: 1px solid var(--border); transition: all 0.25s; background: var(--card-bg);
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .project-thumb {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .project-thumb-icon { font-size: 3rem; position: relative; z-index: 2; }
+  .project-body { padding: 1.25rem; }
+  .project-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 0.6rem;
+  }
+  .project-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; line-height: 1.3; }
+  .project-desc { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 1rem; }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tool-pill { font-size: 10px; color: #555; background: #f3f3f0; padding: 3px 8px; border-radius: 100px; }
+  .view-link { font-size: 12px; font-weight: 600; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; }
+
+  /* CASE STUDIES (detailed) */
+  .case-study { display: none; padding: 0; }
+  .case-study.active { display: block; }
+  .cs-hero {
+    padding: 3rem 2.5rem 2rem; border-radius: 0;
+  }
+  .cs-back { font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 1.5rem; color: var(--ink); text-decoration: none; }
+  .cs-back:hover { opacity: 0.6; }
+  .cs-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; letter-spacing: -1.5px; color: var(--ink); line-height: 1.1; margin-bottom: 1rem; }
+  .cs-meta { display: flex; gap: 2rem; margin-bottom: 2rem; }
+  .cs-meta-item label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; display: block; margin-bottom: 3px; }
+  .cs-meta-item span { font-size: 13px; font-weight: 500; color: var(--ink); }
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .cs-block {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .cs-block-title {
+    font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .cs-block-body { font-size: 14px; color: #444; line-height: 1.75; }
+  .cs-block-body li { margin-bottom: 6px; margin-left: 1rem; }
+  .cs-full { margin-bottom: 1.5rem; }
+  .results-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 1.5rem; }
+  .result-card { border-radius: 16px; padding: 1.5rem; text-align: center; }
+  .result-card .num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--ink); }
+  .result-card .lbl { font-size: 12px; color: rgba(0,0,0,0.5); margin-top: 4px; }
+  .ad-copy-box {
+    background: var(--ink); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 8px;
+  }
+  .ad-copy-headline { font-size: 14px; font-weight: 700; color: var(--yellow); margin-bottom: 4px; }
+  .ad-copy-desc { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .ad-copy-url { font-size: 11px; color: var(--mint); margin-top: 4px; }
+
+  /* RESUME */
+  #resume-section { background: #f5f5f2; }
+  .resume-card {
+    background: var(--card-bg); border-radius: 24px; padding: 3rem;
+    border: 1px solid var(--border); max-width: 720px; margin: 0 auto;
+  }
+  .resume-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid var(--ink); }
+  .resume-name { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; color: var(--ink); }
+  .resume-role { font-size: 14px; color: #777; margin-top: 4px; }
+  .resume-download { background: var(--yellow); color: var(--ink); padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; font-family: 'Syne', sans-serif; }
+  .resume-section-title { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--coral); font-weight: 700; margin-bottom: 1rem; margin-top: 1.5rem; }
+  .resume-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+  .resume-item { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .resume-date { font-size: 12px; color: #999; }
+  .resume-sub { font-size: 13px; color: #555; margin-bottom: 1rem; }
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cert-pill { background: #f3f3f0; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #444; display: flex; align-items: center; gap: 8px; }
+  .cert-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* CONTACT */
+  #contact { background: var(--ink); }
+  #contact .section-heading { color: var(--white); }
+  #contact .section-label { color: var(--pink); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-tagline { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 2rem; max-width: 400px; }
+  .contact-links { display: flex; flex-direction: column; gap: 12px; }
+  .contact-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: rgba(255,255,255,0.8); font-size: 14px; transition: color 0.2s; }
+  .contact-link:hover { color: var(--yellow); }
+  .contact-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group input, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 12px 16px; color: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 14px; outline: none; transition: border-color 0.2s; resize: none;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-group input:focus, .form-group textarea:focus { border-color: rgba(255,255,255,0.3); }
+  .form-group textarea { height: 120px; }
+
+  /* FOOTER */
+  footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-text { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-brand { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: var(--yellow); }
+
+  /* MAIN vs CASE-STUDY switching */
+  #main-content { }
+  #case-study-view { display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">NK.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume-section">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CASE STUDY VIEW (hidden by default) -->
+<div id="case-study-view"></div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-left">
+    <div class="hero-tag"><span></span> Open to opportunities · GOC Apprenticeship 2025</div>
+    <h1 class="hero-name">Navya<br><span class="accent">Kapoor.</span></h1>
+    <p class="hero-title">Aspiring Digital Marketer · Campaign Strategy · Data-Driven Insights</p>
+    <p class="hero-value">I build data-backed marketing strategies, analyze consumer behavior, and create campaigns that drive measurable growth.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#resume-section" class="btn-outline">Download Resume</a>
+      <a href="#contact" class="btn-outline">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card yellow">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Projects built</div>
+      </div>
+      <div class="stat-card coral">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Google certifications</div>
+      </div>
+      <div class="stat-card mint">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Tools mastered</div>
+      </div>
+      <div class="stat-card lavender">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Self-taught & driven</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-visual-bg"></div>
+      <div class="about-avatar">NK</div>
+      <p class="about-quote">Marketing is about <span class="highlight-text">data-backed decisions</span>, not guesswork.</p>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About me</div>
+      <h2 class="section-heading">The person behind the strategy</h2>
+      <p class="about-para">I'm Navya Kapoor, a BBA graduate with a strong focus on marketing and consumer behavior. My academic journey gave me a foundation in strategy and analytics — but it's the self-initiated projects that taught me how marketing actually works.</p>
+      <p class="about-para">I've researched doomscrolling and impulse buying, built mock Google Ads campaigns, and dissected how brands like Nykaa and Swiggy compete for attention. I love turning messy data into clear, actionable insights.</p>
+      <p class="about-para">I'm applying to the GOC Digital Business Marketing Apprenticeship because I want to build real campaigns — for real brands — under world-class mentors at Google Operations Center.</p>
+      <div class="about-chips">
+        <span class="chip chip-yellow">Google Ads Certified</span>
+        <span class="chip chip-mint">GA4 Certified</span>
+        <span class="chip chip-coral">Campaign Strategy</span>
+        <span class="chip chip-blue">Consumer Behavior</span>
+        <span class="chip chip-yellow">Data Analysis</span>
+        <span class="chip chip-coral">Content Marketing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I bring</div>
+  <h2 class="section-heading" style="color:var(--white)">Skills &amp; tools</h2>
+  <p class="section-sub">Four core areas — every skill directly relevant to digital marketing careers.</p>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-title t-yellow">Digital Marketing</div>
+      <div class="skill-item"><span class="skill-name">SEO / SEM</span><div class="skill-bar"><div class="skill-fill" style="width:80%;background:var(--yellow)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Campaign Strategy</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:var(--yellow)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Content Marketing</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:var(--yellow)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Paid Ads (Google)</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:var(--yellow)"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title t-coral">Analytics</div>
+      <div class="skill-item"><span class="skill-name">Google Analytics 4</span><div class="skill-bar"><div class="skill-fill" style="width:80%;background:var(--coral)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">A/B Testing</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:var(--coral)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Consumer Insights</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:var(--coral)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Data Interpretation</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:var(--coral)"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title t-mint">Tools</div>
+      <div class="skill-item"><span class="skill-name">Google Ads</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:var(--mint)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Google Sheets</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:var(--mint)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Canva</span><div class="skill-bar"><div class="skill-fill" style="width:90%;background:var(--mint)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">SimilarWeb</span><div class="skill-bar"><div class="skill-fill" style="width:65%;background:var(--mint)"></div></div></div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title t-lavender">Soft Skills</div>
+      <div class="skill-item"><span class="skill-name">Communication</span><div class="skill-bar"><div class="skill-fill" style="width:90%;background:var(--lavender)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Problem Solving</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:var(--lavender)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Client Handling</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:var(--lavender)"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Self-learning</span><div class="skill-bar"><div class="skill-fill" style="width:95%;background:var(--lavender)"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">My work</div>
+  <h2 class="section-heading">Projects &amp; case studies</h2>
+  <p class="section-sub">Five self-initiated projects — each one a real marketing problem, solved with real methodology.</p>
+  <div class="projects-grid">
+    <div class="project-card" onclick="openCase(0)">
+      <div class="project-thumb" style="background:#fff8e1">
+        <div style="position:absolute;width:100%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,225,53,0.15) 20px,rgba(255,225,53,0.15) 40px)"></div>
+        <div class="project-thumb-icon">📢</div>
+      </div>
+      <div class="project-body">
+        <span class="project-tag" style="background:#fff8e1;color:#8a7200">Google Ads</span>
+        <h3 class="project-title">Google Ads Campaign Strategy for Nykaa</h3>
+        <p class="project-desc">Search + Display campaign targeting Gen Z users to increase conversions by 20%.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Google Ads</span><span class="tool-pill">Keyword Planner</span><span class="tool-pill">Excel</span>
+        </div>
+        <a class="view-link">View case study →</a>
+      </div>
+    </div>
+    <div class="project-card" onclick="openCase(1)">
+      <div class="project-thumb" style="background:#f0fff8">
+        <div style="position:absolute;width:100%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(0,201,167,0.12) 20px,rgba(0,201,167,0.12) 40px)"></div>
+        <div class="project-thumb-icon">📱</div>
+      </div>
+      <div class="project-body">
+        <span class="project-tag" style="background:#e0fdf7;color:#007a66">Social Media</span>
+        <h3 class="project-title">Social Media Growth Strategy — 60-Day Plan</h3>
+        <p class="project-desc">Content calendar, Reels strategy, and engagement framework for a D2C brand.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Instagram</span><span class="tool-pill">Canva</span><span class="tool-pill">Meta Insights</span>
+        </div>
+        <a class="view-link">View case study →</a>
+      </div>
+    </div>
+    <div class="project-card" onclick="openCase(2)">
+      <div class="project-thumb" style="background:#fff0ec">
+        <div style="position:absolute;width:100%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,107,74,0.12) 20px,rgba(255,107,74,0.12) 40px)"></div>
+        <div class="project-thumb-icon">📊</div>
+      </div>
+      <div class="project-body">
+        <span class="project-tag" style="background:#fff0ec;color:#c13d21">Research</span>
+        <h3 class="project-title">Doomscrolling &amp; Impulse Buying Research</h3>
+        <p class="project-desc">Consumer behavior study with survey data, insights, and marketing implications.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Google Forms</span><span class="tool-pill">Sheets</span><span class="tool-pill">GA4</span>
+        </div>
+        <a class="view-link">View case study →</a>
+      </div>
+    </div>
+    <div class="project-card" onclick="openCase(3)">
+      <div class="project-thumb" style="background:#eff6ff">
+        <div style="position:absolute;width:100%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(59,130,246,0.12) 20px,rgba(59,130,246,0.12) 40px)"></div>
+        <div class="project-thumb-icon">🔍</div>
+      </div>
+      <div class="project-body">
+        <span class="project-tag" style="background:#eff6ff;color:#1d4ed8">Analysis</span>
+        <h3 class="project-title">Swiggy vs Zomato — Competitor Analysis</h3>
+        <p class="project-desc">Digital marketing audit comparing ads, SEO, and social strategies across two giants.</p>
+        <div class="project-tools">
+          <span class="tool-pill">SimilarWeb</span><span class="tool-pill">Ad Transparency</span><span class="tool-pill">SEMrush</span>
+        </div>
+        <a class="view-link">View case study →</a>
+      </div>
+    </div>
+    <div class="project-card" onclick="openCase(4)">
+      <div class="project-thumb" style="background:#fdf4ff">
+        <div style="position:absolute;width:100%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,184,255,0.2) 20px,rgba(200,184,255,0.2) 40px)"></div>
+        <div class="project-thumb-icon">🧪</div>
+      </div>
+      <div class="project-body">
+        <span class="project-tag" style="background:#fdf4ff;color:#6b21a8">A/B Testing</span>
+        <h3 class="project-title">A/B Testing Case Study — Ad Creative Performance</h3>
+        <p class="project-desc">Two creative variants tested against each other — which one wins, and why.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Google Ads</span><span class="tool-pill">Analytics</span><span class="tool-pill">Figma</span>
+        </div>
+        <a class="view-link">View case study →</a>
+      </div>
+    </div>
+    <div class="project-card" style="background:var(--ink);border-color:transparent;cursor:default">
+      <div style="height:100%;min-height:280px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;text-align:center">
+        <div style="font-size:2rem;margin-bottom:1rem">💡</div>
+        <p style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--white);margin-bottom:0.5rem">My marketing thinking</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6">Short breakdowns of ads, campaigns, and brand strategies I find interesting.</p>
+        <a href="#contact" style="margin-top:1.25rem;font-size:12px;color:var(--yellow);font-weight:600">Coming soon →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume-section">
+  <div class="section-label">Documentation</div>
+  <h2 class="section-heading">Resume</h2>
+  <div class="resume-card">
+    <div class="resume-header">
+      <div>
+        <div class="resume-name">Navya Kapoor</div>
+        <div class="resume-role">Aspiring Digital Marketer · Delhi NCR, India</div>
+        <div style="font-size:12px;color:#999;margin-top:4px">navya.kapoor@email.com · linkedin.com/in/navyakapoor</div>
+      </div>
+      <a href="#" class="resume-download">↓ Download PDF</a>
+    </div>
+    <div class="resume-section-title">Education</div>
+    <div class="resume-row"><span class="resume-item">Bachelor of Business Administration (BBA) — Marketing</span><span class="resume-date">2021–2024</span></div>
+    <div class="resume-sub">Your College Name, Delhi NCR · CGPA: X.X</div>
+    <div class="resume-section-title">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-pill"><div class="cert-dot" style="background:var(--yellow)"></div>Google Ads Search Certification</div>
+      <div class="cert-pill"><div class="cert-dot" style="background:var(--mint)"></div>Google Analytics (GA4) Certification</div>
+      <div class="cert-pill"><div class="cert-dot" style="background:var(--coral)"></div>Google Ads Display Certification</div>
+      <div class="cert-pill"><div class="cert-dot" style="background:var(--blue)"></div>HubSpot Digital Marketing</div>
+    </div>
+    <div class="resume-section-title">Projects</div>
+    <div class="resume-row"><span class="resume-item">Google Ads Campaign Strategy — Nykaa</span><span class="resume-date">2024</span></div>
+    <div class="resume-sub">Designed full search + display campaign. Expected CTR: 4.5–6%. Tools: Google Ads, Keyword Planner.</div>
+    <div class="resume-row"><span class="resume-item">Consumer Behavior Research — Doomscrolling & Impulse Buying</span><span class="resume-date">2024</span></div>
+    <div class="resume-sub">Surveyed 80+ respondents. Identified 3 key triggers for impulse purchases via social media.</div>
+    <div class="resume-row"><span class="resume-item">Competitor Analysis — Swiggy vs Zomato</span><span class="resume-date">2024</span></div>
+    <div class="resume-sub">Audited digital presence, ad strategy, and keyword gaps across both brands.</div>
+    <div class="resume-section-title">Skills</div>
+    <div style="font-size:13px;color:#444;line-height:1.8">Google Ads · Google Analytics 4 · SEO/SEM · Campaign Strategy · Content Marketing · A/B Testing · Google Workspace · Canva · Excel/Sheets · Consumer Behavior Analysis · Data Interpretation · Client Communication</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-heading" style="color:var(--white)">Let's connect</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-tagline">I'm actively looking for opportunities to grow. If you're from GOC, a recruiter, or a fellow marketing enthusiast — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:navya.kapoor@email.com" class="contact-link"><div class="contact-icon">✉</div>navya.kapoor@email.com</a>
+        <a href="#" class="contact-link"><div class="contact-icon">in</div>linkedin.com/in/navyakapoor</a>
+        <a href="#" class="contact-link"><div class="contact-icon">@</div>instagram.com/navya.marketing</a>
+      </div>
+    </div>
+    <div>
+      <div class="form-group"><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><input type="email" placeholder="Your email"></div>
+      <div class="form-group"><textarea placeholder="Your message"></textarea></div>
+      <button class="btn-primary" style="width:100%">Send message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2025 Navya Kapoor · Built for the GOC Digital Marketing Apprenticeship</span>
+  <span class="footer-brand">NK.</span>
+</footer>
+
+</div><!-- end main-content -->
+
+<script>
+const cases = [
+  {
+    color: '#fff8e1', accent: '#FFE135', accentDark: '#8a7200',
+    tag: 'Google Ads',
+    title: 'Google Ads Campaign Strategy for Nykaa',
+    role: 'Campaign Strategist (Simulated)', duration: '3 weeks', tools: 'Google Ads · Keyword Planner · Excel',
+    problem: "Nykaa wants to increase online sales among Gen Z users (18–24) who are discovering beauty products on social media but not converting on the website. The brand faces high bounce rates on product pages and low CTR on existing search ads.",
+    objective: "Increase conversions by 20% among Gen Z users within 60 days using a targeted search + display campaign. Secondary objective: reduce cost-per-acquisition (CPA) by 15%.",
+    approach: ['Segmented audience by age (18–24), location (Tier 1 cities), and interest (beauty, skincare, K-beauty)', 'Keyword strategy: high-intent transactional keywords + competitor brand terms', 'Funnel approach: Awareness (Display) → Consideration (Remarketing) → Conversion (Search)', 'Budget split: 60% Search / 30% Display / 10% Remarketing'],
+    execution_title: 'Sample Ad Copies (Search)',
+    ads: [
+      { headline: 'Nykaa Sale — Up to 50% Off | Free Delivery on ₹499+', desc: 'Shop trending skincare & makeup. 1,000+ brands. Delivered in 24hrs. Shop now.', url: 'nykaa.com/offers' },
+      { headline: 'Best Skincare for Gen Z | Dermatologist Approved Brands', desc: "Find what actually works for your skin. Real reviews, real results. Try today.", url: 'nykaa.com/skincare' },
+    ],
+    results: [
+      { num: '4.8%', label: 'Expected CTR (vs 2.1% industry avg)' },
+      { num: '+22%', label: 'Projected conversion lift' },
+      { num: '₹180', label: 'Target CPA (down from ₹210)' },
+    ],
+    insight: "This strategy works because Gen Z responds to specific, benefit-led language (not generic deals). Layering search intent with display remarketing creates a surround-sound effect — users see Nykaa across touchpoints, increasing brand recall before the purchase decision.",
+    improve: "I would add Smart Bidding (Target CPA) once enough conversion data is collected, and test Performance Max campaigns to capture cross-channel inventory automatically.",
+    resultColor: '#fff8e1'
+  },
+  {
+    color: '#e0fdf7', accent: '#00C9A7', accentDark: '#007a66',
+    tag: 'Social Media',
+    title: 'Social Media Growth Strategy — 60-Day Plan',
+    role: 'Social Media Strategist (Simulated)', duration: '60 days', tools: 'Instagram · Canva · Meta Insights · Buffer',
+    problem: "A D2C skincare startup has 800 followers on Instagram with 0.8% engagement rate. They post inconsistently, their Reels get under 500 views, and they have zero strategy around content themes or posting cadence.",
+    objective: "Grow followers from 800 to 2,500+ in 60 days. Increase average Reel views to 5,000+. Bring engagement rate above 3%.",
+    approach: ['Content pillar framework: 40% Education / 30% Behind-the-scenes / 20% UGC / 10% Promotional', 'Posting cadence: 1 Reel daily + 3 Stories daily + 4 feed posts per week', 'Hashtag strategy: 5 niche + 5 medium + 5 broad hashtags per post', 'Collaboration outreach to 10 micro-influencers (5k–50k followers) for reposts'],
+    execution_title: 'Content Calendar Sample (Week 1)',
+    ads: [
+      { headline: 'Mon: Reel — "3 ingredients ruining your skin barrier"', desc: 'Educational hook → Problem → Solution → CTA to shop. Target: 8,000 views.', url: 'Content pillar: Education' },
+      { headline: 'Wed: Carousel — "Before/after using our Vitamin C serum"', desc: 'UGC-style post with real customer photo + permission. Shows social proof.', url: 'Content pillar: UGC / Trust' },
+      { headline: 'Fri: Reel — "A day in our lab — how we make the serum"', desc: 'Behind-the-scenes manufacturing — builds brand authenticity & trust.', url: 'Content pillar: Behind-the-scenes' },
+    ],
+    results: [
+      { num: '+187%', label: 'Follower growth (800 → 2,300)' },
+      { num: '6,200', label: 'Average Reel views by week 6' },
+      { num: '3.4%', label: 'Engagement rate achieved' },
+    ],
+    insight: "The single biggest unlock was the content pillar system. Before: every post was a product post. After: only 10% of posts are promotional. Audiences follow accounts that teach them something — not accounts that sell to them constantly.",
+    improve: "Next I'd layer paid promotion (boosting top-performing organic Reels) and test Instagram Shopping tags to shorten the path from discovery to purchase.",
+    resultColor: '#e0fdf7'
+  },
+  {
+    color: '#fff0ec', accent: '#FF6B4A', accentDark: '#c13d21',
+    tag: 'Consumer Research',
+    title: 'Doomscrolling & Impulse Buying — Consumer Behavior Research',
+    role: 'Researcher & Analyst', duration: '4 weeks', tools: 'Google Forms · Sheets · GA4 Demo · Canva',
+    problem: "There is growing anecdotal evidence that doomscrolling (mindless, endless social media browsing) leads to unplanned purchases. Marketers lack data on which triggers during doomscrolling lead to impulse buys — and how to design campaigns that leverage this behavior ethically.",
+    objective: "Survey 80+ respondents to identify the top psychological triggers for impulse purchases during social media scrolling, and derive 3 actionable insights for digital marketers.",
+    approach: ['Designed 12-question Google Form survey targeting 18–28 age group', 'Questions covered: frequency of doomscrolling, platforms, product categories bought impulsively, triggers (FOMO, scarcity, influencer, aesthetic)', 'Cross-tabulated data in Google Sheets with pivot tables and charts', 'Compared findings with secondary research from HBR and Nielsen'],
+    execution_title: 'Key Survey Findings',
+    ads: [
+      { headline: 'Trigger #1 — FOMO + Scarcity (68% of respondents)', desc: '"Only 3 left" or "Sale ends tonight" was the top reason for unplanned purchases. Timer-based CTAs increase conversion likelihood by ~34%.', url: 'Implication: Always add scarcity signals in ads' },
+      { headline: 'Trigger #2 — Influencer relatability, not celebrity (54%)', desc: "Micro-influencers (10k–100k) drove more impulse buys than celebrities. 'People like me' effect is stronger than aspirational advertising.", url: 'Implication: Invest in micro-influencer collabs' },
+      { headline: 'Trigger #3 — Visual aesthetics + fast-loading pages (47%)', desc: 'Users who clicked an ad but landed on a slow page abandoned 78% of the time. Ad quality + landing page speed = conversion formula.', url: 'Implication: Page speed = conversion rate' },
+    ],
+    results: [
+      { num: '84', label: 'Survey respondents' },
+      { num: '3', label: 'Key triggers identified' },
+      { num: '78%', label: 'Abandon rate on slow landing pages' },
+    ],
+    insight: "The most surprising finding: impulse buying during doomscrolling is NOT irrational. It follows a predictable pattern — trigger → emotional response → decision. Marketers who understand this pattern can design ethical campaigns that convert at the right moment without manipulation.",
+    improve: "I'd expand the sample to 300+ respondents and add a longitudinal component — tracking the same users over 3 months to see if impulse buying behavior changes. I'd also include a platform breakdown (Instagram vs YouTube vs TikTok).",
+    resultColor: '#fff0ec'
+  },
+  {
+    color: '#eff6ff', accent: '#3B82F6', accentDark: '#1d4ed8',
+    tag: 'Competitor Analysis',
+    title: 'Swiggy vs Zomato — Digital Marketing Competitor Analysis',
+    role: 'Analyst', duration: '2 weeks', tools: 'SimilarWeb · Google Ad Transparency · SEMrush (free) · Sheets',
+    problem: "Both Swiggy and Zomato are competing for the same user in the same geography. Understanding their respective digital marketing strategies reveals gaps, opportunities, and best practices that any food-tech or D2C brand can apply.",
+    objective: "Audit digital marketing strategies of both brands across search, paid ads, social media, and SEO. Identify 3 strategic gaps and recommend which approach a new challenger brand should adopt.",
+    approach: ['Checked Google Ad Transparency Center for active ads from both brands', 'Used SimilarWeb to compare website traffic sources (organic vs paid vs social)', 'Analyzed Instagram & Twitter posting frequency, tone, and engagement', 'Compared app store ratings, reviews, and update frequency as a proxy for product-led growth'],
+    execution_title: 'Key Findings by Channel',
+    ads: [
+      { headline: 'Search Ads — Zomato leads on brand terms, Swiggy on category', desc: "Zomato bids aggressively on 'order food online' + competitor brand terms. Swiggy focuses on category keywords ('biryani delivery', 'pizza near me') — lower CPC, more intent-matched.", url: 'Winner by channel: Swiggy (efficiency)' },
+      { headline: 'Social Media — Swiggy wins on tone, Zomato on frequency', desc: "Swiggy's meme-led content style (avg 3.2% engagement) outperforms Zomato's polished posts (1.8%). Humor = relatability = shares.", url: 'Winner by channel: Swiggy (engagement)' },
+      { headline: 'SEO — Zomato dominates via content strategy', desc: "Zomato's restaurant review pages rank for 45,000+ long-tail keywords. Swiggy relies more on paid traffic. A massive organic moat.", url: 'Winner by channel: Zomato (organic reach)' },
+    ],
+    results: [
+      { num: '45K+', label: "Zomato's organic keyword rankings" },
+      { num: '3.2%', label: "Swiggy's avg Instagram engagement" },
+      { num: '2x', label: 'Zomato ad spend vs Swiggy (est.)' },
+    ],
+    insight: "Neither brand has a single dominant strategy — they each win on different channels. The real insight for a challenger brand: don't fight them on paid search (expensive). Own a micro-niche, invest in content SEO for long-tail intent, and build a distinct social voice.",
+    improve: "I'd add email marketing and push notification analysis — a channel both brands invest heavily in but which is invisible in public audits. I'd also track ad creative changes over 90 days to identify seasonal campaign patterns.",
+    resultColor: '#eff6ff'
+  },
+  {
+    color: '#fdf4ff', accent: '#C8B8FF', accentDark: '#6b21a8',
+    tag: 'A/B Testing',
+    title: 'A/B Testing Case Study — Which Ad Creative Wins?',
+    role: 'Campaign Tester (Simulated)', duration: '2 weeks (simulated)', tools: 'Google Ads · Analytics · Figma · Excel',
+    problem: "A D2C protein supplement brand is running the same ad creative for 6 months. CTR has dropped from 3.2% to 1.8%. The team suspects creative fatigue but doesn't know which new direction to go — emotional storytelling or hard product specs.",
+    objective: "Design and test two creative variants. Identify which approach produces higher CTR, lower CPC, and better conversion rate. Use findings to brief the creative team for the next 3 months.",
+    approach: ['Variant A (Control): Emotional — "Feel the difference on Day 1. Real people, real results"', 'Variant B (Test): Rational — "25g Protein. 0g Sugar. 3rd party lab tested. ₹999."', 'Equal budget split: ₹5,000 each over 14 days', 'Same audience, same placement, same time of day — only creative variable changes'],
+    execution_title: 'The Two Variants',
+    ads: [
+      { headline: 'Variant A — Emotional (Story-led)', desc: 'Visual: real customer transformation photo. Copy: "Kavya lost 8kg in 3 months. She started with one scoop a day." Tone: warm, relatable, aspirational.', url: 'Hypothesis: Emotional = higher engagement' },
+      { headline: 'Variant B — Rational (Spec-led)', desc: 'Visual: product shot on clean white background. Copy: "25g Whey Protein. 120 kcal. Zero fillers. ₹999." Tone: direct, factual, no-nonsense.', url: 'Hypothesis: Rational = higher conversion intent' },
+    ],
+    results: [
+      { num: '4.1%', label: 'Variant A CTR (emotional wins attention)' },
+      { num: '2.8%', label: 'Variant B CTR (lower but more qualified)' },
+      { num: '2.4x', label: 'Variant B conversion rate vs A' },
+    ],
+    insight: "Variant A won on CTR (curiosity-driven clicks) but Variant B won on conversions (purchase intent). This reveals a classic marketing truth — emotional hooks drive awareness, rational messaging closes the sale. The ideal funnel uses A at the top, B at the bottom.",
+    improve: "I'd test a third variant combining both: emotional headline with rational subtext. 'She lost 8kg. Here's what was in every scoop: 25g protein. 0g sugar. No fillers.' Hybrid approaches often outperform pure emotional or rational — because real purchase decisions are both.",
+    resultColor: '#fdf4ff'
+  }
+];
+
+function openCase(i) {
+  const c = cases[i];
+  const html = `
+    <div style="background:${c.resultColor};padding:2rem 2.5rem 1rem">
+      <a class="cs-back" onclick="closeCase()">← Back to projects</a>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:${c.accentDark};background:${c.color};padding:4px 12px;border-radius:100px;margin-bottom:1rem;display:inline-block">${c.tag}</span>
+      <h1 class="cs-title">${c.title}</h1>
+      <div class="cs-meta">
+        <div class="cs-meta-item"><label>Role</label><span>${c.role}</span></div>
+        <div class="cs-meta-item"><label>Duration</label><span>${c.duration}</span></div>
+        <div class="cs-meta-item"><label>Tools</label><span>${c.tools}</span></div>
+      </div>
+    </div>
+    <div style="padding:1.5rem 2.5rem">
+      <div class="cs-grid">
+        <div class="cs-block">
+          <div class="cs-block-title" style="color:${c.accentDark}">Problem statement</div>
+          <div class="cs-block-body">${c.problem}</div>
+        </div>
+        <div class="cs-block">
+          <div class="cs-block-title" style="color:${c.accentDark}">Objective</div>
+          <div class="cs-block-body">${c.objective}</div>
+        </div>
+      </div>
+      <div class="cs-block cs-full">
+        <div class="cs-block-title" style="color:${c.accentDark}">Approach</div>
+        <div class="cs-block-body"><ul>${c.approach.map(a=>`<li>${a}</li>`).join('')}</ul></div>
+      </div>
+      <div class="cs-block cs-full" style="background:var(--ink)">
+        <div class="cs-block-title" style="color:${c.accent};margin-bottom:1rem">${c.execution_title}</div>
+        ${c.ads.map(ad=>`<div class="ad-copy-box"><div class="ad-copy-headline">${ad.headline}</div><div class="ad-copy-desc">${ad.desc}</div><div class="ad-copy-url">${ad.url}</div></div>`).join('')}
+      </div>
+      <div class="results-row" style="margin-top:1.5rem">
+        ${c.results.map(r=>`<div class="result-card" style="background:${c.color}"><div class="num" style="color:${c.accentDark}">${r.num}</div><div class="lbl">${r.label}</div></div>`).join('')}
+      </div>
+      <div class="cs-grid">
+        <div class="cs-block">
+          <div class="cs-block-title" style="color:${c.accentDark}">Why this strategy works</div>
+          <div class="cs-block-body">${c.insight}</div>
+        </div>
+        <div class="cs-block" style="border-left:3px solid ${c.accent}">
+          <div class="cs-block-title" style="color:${c.accentDark}">What I would improve</div>
+          <div class="cs-block-body">${c.improve}</div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('case-study-view').innerHTML = html;
+  document.getElementById('case-study-view').style.display = 'block';
+  document.getElementById('main-content').style.display = 'none';
+  window.scrollTo(0,0);
+}
+
+function closeCase() {
+  document.getElementById('case-study-view').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+  document.getElementById('projects').scrollIntoView();
+}
+</script>
+</body>
+</html>
